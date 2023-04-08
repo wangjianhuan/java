@@ -1,5 +1,7 @@
 package ceshi;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -7,7 +9,7 @@ public class OneMoreStudy {
     public static void main(String[] args) throws Exception {
         ClassLoader myLoader = new ClassLoader() {
             @Override
-            public Class<?> loadClass(String name) throws ClassNotFoundException {
+            public Class<?> loadClass(@NotNull String name) throws ClassNotFoundException {
                 try {
                     String fileName = name.substring(name.lastIndexOf(".") + 1) + ".class";
                     InputStream inputStream = getClass().getResourceAsStream(fileName);
