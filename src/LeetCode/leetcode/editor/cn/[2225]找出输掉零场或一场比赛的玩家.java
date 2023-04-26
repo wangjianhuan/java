@@ -90,14 +90,6 @@ class leetcode_java_2225 {
     }
 
     public List<List<Integer>> findWinners3(int[][] matches) {
-        long l = System.currentTimeMillis();
-        int max = 0;
-        for (int[] match : matches) {
-            for (int i : match) {
-                max = Math.max(max, i);
-            }
-        }
-        System.out.println(System.currentTimeMillis() - l);
         HashMap<Integer, Integer> hashMap = new HashMap<>();
         for (int[] item:matches) {
             int win = item[0];
@@ -111,7 +103,6 @@ class leetcode_java_2225 {
                 hashMap.put(low,integer-1);
             }
         }
-        System.out.println(System.currentTimeMillis() - l);
         List<Integer> list1 = new ArrayList<>();
         List<Integer> list2 = new ArrayList<>();
         hashMap.forEach((key,value)->{
@@ -120,16 +111,12 @@ class leetcode_java_2225 {
             else if (value == 0)
                 list2.add(key);
         });
-        System.out.println(System.currentTimeMillis() - l);
         list1.sort(Integer::compareTo);
-        System.out.println(System.currentTimeMillis() - l);
         list2.sort(Integer::compareTo);
-        System.out.println(System.currentTimeMillis() - l);
 
         List<List<Integer>> list = new ArrayList<>();
         list.add(list1);
         list.add(list2);
-        System.out.println(System.currentTimeMillis() - l);
         return list;
     }
 
