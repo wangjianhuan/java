@@ -1,6 +1,9 @@
 package lianxi;
 
 import java.util.HashMap;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 public class _100层楼 {
     public static void main(String[] args) {
@@ -22,8 +25,14 @@ public class _100层楼 {
 //            System.out.println("key:"+key+"\t"+"values:"+values);
 //        });
 
-        long l1 = System.currentTimeMillis();
-        System.out.println("l1 = " + (l1 - l));
+
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(10,10,10, TimeUnit.SECONDS,new ArrayBlockingQueue<>(10));
+        executor.execute(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("dsda");
+            }
+        });
     }
 
     /**
